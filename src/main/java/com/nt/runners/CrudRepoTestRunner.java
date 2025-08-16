@@ -24,14 +24,10 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 		
 		 try {
 		// Bulk insertion/batch insertion
-			 Iterable<CoronaVaccine> listVaccines= service.registerInBatch(
-					 List.of(new CoronaVaccine("sputnik1", "Russie","Russia",527.8, 2),
-							 new CoronaVaccine("moderena1", "moderena","USA",415.8, 2),
-							 new CoronaVaccine("Covaxin", "Covaxin","India",250.454, 2),
-							 new CoronaVaccine("Sputnik", "Sputnik","Rassia",566.8, 2),
-							 new CoronaVaccine("Covishield", "Covishield","USA",346.5666, 2),
-							 new CoronaVaccine("Moderna", "Moderna","USA",453.8, 3),
-							 new CoronaVaccine("Bharat", "Bharat","India",343.8, 2)));
+			 Iterable<CoronaVaccine> listVaccines= service.registerInBatch(List.of(new CoronaVaccine("sputnik1", "Russie","Russia",527.8, 2),
+				                                                                                                         new CoronaVaccine("pyzer1", "pyzer","USA",648.8, 2),
+				                                                                                                         new CoronaVaccine("moderena1", "moderena","USA",415.8, 2)
+				                                                                                                        ));
 			 
 			 /*Iterable<CoronaVaccine> listVaccines= service.registerInBatch(Arrays.asList(new CoronaVaccine("sputnik", "Russie","Russia",567.8, 2),
                                                                                                                                                 new CoronaVaccine("pyzer", "pyzer","USA",678.8, 2),
@@ -44,7 +40,7 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 		 catch(DataAccessException dae) {
 			 dae.printStackTrace();
 		 }
-				/* try {
+				 try {
 				 System.out.println("Recods count ::"+service.getVaccinesCount());
 				 }
 				 catch(DataAccessException dae) {
@@ -56,8 +52,8 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 					 }
 					 catch(DataAccessException dae) {
 						 dae.printStackTrace();
-					 }*/
-				/*try {
+					 }
+				try {
 				  System.out.println("==============findAll()=====================");
 				   Iterable<CoronaVaccine> itList=service.fetchAllDetails();
 						    itList.forEach(vaccine->{     //forEach with Lambda
@@ -74,7 +70,7 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 				}
 				catch(DataAccessException dae) {
 					dae.printStackTrace();
-				}*/
+				}
 		
 				/*System.out.println("============================================");
 				try {
@@ -108,75 +104,72 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 					dae.printStackTrace();
 				}*/
 		
-				/*try {
-					  System.out.println("============== findById(-)==================");
-					     Optional<CoronaVaccine> opt=service.fetchVaccineById(22L);
-					     if(opt.isPresent())
-					    	 System.out.println(opt.get());
-					         opt.orElseThrow(()-> new IllegalArgumentException("record not found"));
-					    	 
-					}
-					catch(DataAccessException dae) {
-						dae.printStackTrace();
-					}*/
-		            
-				/*     CoronaVaccine vaccine=service.fetchVaccineById(22L).orElseThrow(()->new IllegalArgumentException("not available"));
-				     System.out.println(vaccine);
-				     System.out.println("=========================");
-				     CoronaVaccine vaccine1=service.fetchVaccineById(12L).orElse(new CoronaVaccine());
-				      System.out.println(vaccine1);
-				      System.out.println("=========================");
-				      
-				         CoronaVaccine vaccine3=service.fetchVaccineById(12L).orElseGet(()-> new CoronaVaccine());
-				          System.out.println(vaccine3);
-				*/
-		             
+				/*
+				 * try { System.out.println("============== findById(-)==================");
+				 * Optional<CoronaVaccine> opt=service.fetchVaccineById(22L);
+				 * if(opt.isPresent()) System.out.println(opt.get()); opt.orElseThrow(()-> new
+				 * IllegalArgumentException("record not found"));
+				 * 
+				 * } catch(DataAccessException dae) { dae.printStackTrace(); }
+				 */
+				/*
+				 * CoronaVaccine vaccine=service.fetchVaccineById(22L).orElseThrow(()->new
+				 * IllegalArgumentException("not available")); System.out.println(vaccine);
+				 * System.out.println("========================="); CoronaVaccine
+				 * vaccine1=service.fetchVaccineById(12L).orElse(new CoronaVaccine());
+				 * System.out.println(vaccine1);
+				 * System.out.println("=========================");
+				 * 
+				 * CoronaVaccine vaccine3=service.fetchVaccineById(12L).orElseGet(()-> new
+				 * CoronaVaccine()); System.out.println(vaccine3);
+				 * 
+				 */
 		
 		 //invoke methods
-			/*try {
+			try {
 			   	//create Entity class obj
-				CoronaVaccine vaccine=new CoronaVaccine("covishield","Serum","india",500.0,2);
+				CoronaVaccine vaccine11=new CoronaVaccine("covishield","Serum","india",500.0,2);
 				//call b.method
-				System.out.println(service.registerVaccine(vaccine));
+				System.out.println(service.registerVaccine(vaccine11));
 			}
 			catch(DataAccessException dae) {
 				dae.printStackTrace();
 			}
 			catch(Exception e) {
 				e.printStackTrace();
-			}*/
+			}
 		
 		
-			/*	   try {
+				   try {
 					   System.out.println(service.removeVaccineById(22L));
 				   }
 				   catch(DataAccessException dae) {
 					   dae.printStackTrace();
-				   }*/
+				   }
 		
-			/*   try {
-				   CoronaVaccine vaccine=new CoronaVaccine();
-				   vaccine.setRegNo(23L);
-				   System.out.println(service.removeVaccineByObject(vaccine));
+			   try {
+				   CoronaVaccine vaccine111=new CoronaVaccine();
+				   vaccine111.setRegNo(23L);
+				   System.out.println(service.removeVaccineByObject(vaccine111));
 			   }
 			   catch(DataAccessException dae) {
 				   dae.printStackTrace();
-			   }*/
+			   }
 		
-			/*try {
+			try {
 				  System.out.println(service.removeVaccinesByIds(List.of(34L,56L)));
 			   }
 			   catch(DataAccessException dae) {
 				   System.out.println("Problem in deleting records");
 				   dae.printStackTrace();
-			   }*/
+			   }
 		
-			/*try {
+			try {
 				System.out.println(service.removeAllVaccines());
 			   }
 			   catch(DataAccessException dae) {
 				   dae.printStackTrace();
-			   }*/
+			   }
 		
 
 	}
